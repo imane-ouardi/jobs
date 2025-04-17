@@ -50,8 +50,14 @@ class JobsResource extends Resource
                 ->label('URL')
                 ->placeholder('https://acme.com/jobs/ceo-wanted')
                 ->required(),
+                Select::make("tags")
+                ->multiple()
+                ->relationship("tags" ,"name")->preload(),    
+            
             Checkbox::make('featured')
                 ->label('Feature (Costs Extra)'),
+            Select::make("employer_id")
+            ->relationship("employer" , "name")
             ]);
     }
 
@@ -65,6 +71,7 @@ class JobsResource extends Resource
                 TextColumn::make('location'),
                 TextColumn::make('schedule'),
                 TextColumn::make('url'),
+                TextColumn::make('tags.name'),
                 TextColumn::make('featured'),
             ])
             ->filters([

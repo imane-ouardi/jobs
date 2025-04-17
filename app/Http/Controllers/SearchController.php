@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Tag;
 use App\Models\Job;
 use Illuminate\Http\Request;
 
@@ -14,6 +14,11 @@ class SearchController extends Controller
             ->where('title', 'LIKE', '%'.request('q').'%')
             ->get();
 
-        return view('results', ['jobs' => $jobs]);
+        
+
+        return view('results', 
+        ['jobs' => $jobs,
+        'tags' => Tag::all(),
+    ]);
     }
 }

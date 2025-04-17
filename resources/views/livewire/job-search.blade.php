@@ -1,13 +1,14 @@
-{{-- <x-layout>
+
     <div class="space-y-10">
         <section class="text-center pt-6">
             <h1 class="font-bold text-4xl">Let's Find Your Next Job</h1>
         
-            <x-forms.form action="/search" class="mt-6">
+            <x-forms.form class="mt-6">
                 <div class="bg-white flex px-1 py-1 rounded-full border border-orange-500 overflow-hidden max-w-md mx-auto justify-between">
                     <x-forms.input 
                         :label="false" 
                         name="q" 
+                        wire:model="searchQuery"
                         placeholder="Web Developer..." 
                         class="w-full outline-none bg-white pl-4 text-sm border-none shadow-none" 
                     />
@@ -20,7 +21,7 @@
 
             <div class="mt-6 space-x-1">
                 @foreach($tags as $tag)
-                    <x-tag :$tag />
+                    <x-tag :$tag wire:model="tagsQuery" />
                 @endforeach
             </div>
         </section>
@@ -51,7 +52,6 @@
         </section>
     </div>
 
-    @foreach($tags as $tag)
+    {{-- @foreach($tags as $tag)
         <input type="hidden" name="tags[]" value="{{ $tag->id }}">
-    @endforeach
-</x-layout> --}}
+    @endforeach --}}
