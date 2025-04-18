@@ -13,7 +13,7 @@ class EmployerPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return $user->email === 'admin@admin.com';
     }
 
     /**
@@ -21,7 +21,7 @@ class EmployerPolicy
      */
     public function view(User $user, Employer $employer): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -29,7 +29,7 @@ class EmployerPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -37,7 +37,7 @@ class EmployerPolicy
      */
     public function update(User $user, Employer $employer): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -45,7 +45,7 @@ class EmployerPolicy
      */
     public function delete(User $user, Employer $employer): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -53,7 +53,7 @@ class EmployerPolicy
      */
     public function restore(User $user, Employer $employer): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -61,6 +61,6 @@ class EmployerPolicy
      */
     public function forceDelete(User $user, Employer $employer): bool
     {
-        //
+        return true;
     }
 }

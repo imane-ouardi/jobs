@@ -13,8 +13,7 @@ class JobPolicy
      */
     public function viewAny(User $user): bool
     {
-        return true;
-    }
+        return $user->email === 'admin@admin.com';    }
 
     /**
      * Determine whether the user can view the model.
